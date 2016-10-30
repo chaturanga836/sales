@@ -92,6 +92,11 @@ $app->singleton(
 | can respond to, as well as the controllers that may handle them.
 |
 */
+$app->configureMonologUsing(function($monolog) {
+    $monolog->pushHandler(...);
+
+    return $monolog;
+});
 
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
     require __DIR__.'/../app/Http/routes.php';
